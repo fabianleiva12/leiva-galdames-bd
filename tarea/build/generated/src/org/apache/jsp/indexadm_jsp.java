@@ -55,7 +55,12 @@ public final class indexadm_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("\n");
       out.write("    <body>\n");
-      out.write("        <input type=\"button\" value=\"Ingresar Cliente\" onclick=\"location.href='index.jsp'\" />\n");
+      out.write("        <input type=\"button\" value=\"Ingresar Cliente\" onclick=\"location.href='indexClientes.jsp'\" />\n");
+      out.write("        <input type=\"button\" value=\"Ingresar Vendedor\" onclick=\"location.href='indexUsuario.jsp'\" />\n");
+      out.write("        <input type=\"button\" value=\"Administrar Productos\" onclick=\"location.href='indexProductos.jsp'\" />\n");
+      out.write("        <input type=\"button\" value=\"Ingresar Compra\" onclick=\"location.href='indexcompra.jsp'\" />\n");
+      out.write("        <input type=\"button\" value=\"Ingresar Venta\" onclick=\"location.href='indexVentas.jsp'\" />\n");
+      out.write("        <input type=\"button\" value=\"Ver Ventas(hacer view)\"/>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

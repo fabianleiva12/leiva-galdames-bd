@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-                <form action="ingreso_venta" method="post">
+          <form action="ingreso_venta" method="post">
             <table border="1">
                 <tr bgcolor="#HF2355" style=" color: #HH0023; font-weight:bold;">
                     <td colspan="2" align="center"><h1>Ingresar Venta</h1></td>

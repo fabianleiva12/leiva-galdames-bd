@@ -30,7 +30,7 @@ public class ingreso_compra extends HttpServlet {
 
             compra.insertar_compra(Integer.parseInt(id_compra),Integer.parseInt(monto_total),fecha,hora);
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("indexcompra.jsp");
         } finally {
             out.close();
         }

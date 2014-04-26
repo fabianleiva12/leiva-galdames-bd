@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--
     Document   : login
     Created on : 24-abr-2014, 17:54:29
@@ -14,7 +15,7 @@
         <title>PEPEWORKS</title>
     </head>
     <body>
-
+      
         <form action="validar.jsp" method="POST">
             <table border="1">
                 <tr bgcolor="#HF2355" style=" color:#HH0023 ; font-weight:bold;">

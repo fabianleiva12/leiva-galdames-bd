@@ -34,7 +34,7 @@ public class ingreso_producto extends HttpServlet {
 
             regis.insertar_producto(Integer.parseInt(id_producto),Integer.parseInt(stock),description,categoria,Integer.parseInt(precio));
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("indexProductos.jsp");
         } finally { 
             out.close();
         }

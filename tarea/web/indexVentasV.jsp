@@ -38,7 +38,7 @@
                 <tr align="left"><td>Hora</td>
                 <td><input type="submit" value="hora"></td></tr>
 
-                 <input type="button" value="Volver" onclick="location.href='indexadm.jsp'" />
+                 <input type="button" value="Volver" onclick="location.href='indexVendedor.jsp'" />
             </table>
 
         </form>

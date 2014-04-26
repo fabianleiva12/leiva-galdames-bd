@@ -35,7 +35,7 @@ public class ingreso_ventas extends HttpServlet {
 
             regis.insertar_venta(Integer.parseInt(id_venta),Integer.parseInt(id_cliente),Integer.parseInt(id_usuario),Integer.parseInt(monto_total),fecha,hora);
 
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("indexVentas.jsp");
         } finally { 
             out.close();
         }

@@ -54,6 +54,8 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>PEPEWORKS</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        Hello!  The time is now ");
+      out.print( new java.util.Date() );
       out.write("\n");
       out.write("        <form action=\"validar.jsp\" method=\"POST\">\n");
       out.write("            <table border=\"1\">\n");

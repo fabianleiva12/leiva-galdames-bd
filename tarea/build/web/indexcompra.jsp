@@ -12,8 +12,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Compras</title>
+
+         <%!
+        String tipoUsr;
+        %>
+
     </head>
     <body>
+
          <form action="ingreso_compra" method="post">
             <table border="1">
                 <tr bgcolor="#HF2355" style=" color: #HH0023; font-weight:bold;">

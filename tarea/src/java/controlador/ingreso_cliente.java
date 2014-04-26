@@ -32,7 +32,7 @@ public class ingreso_cliente extends HttpServlet {
 
             regis.insertar_cliente(rut,nombre);
 
-            response.sendRedirect("indexcompra.jsp");
+            response.sendRedirect("indexClientes.jsp");
         } finally {
             out.close();
         }

@@ -14,33 +14,11 @@
         <title>JSP Page</title>
     </head>
     <body>
-               <form action="ingreso_usuario" method="post">
-            <table border="1">
-                <tr bgcolor="#HF2355" style=" color: #HH0023; font-weight:bold;">
-                    <td colspan="2" align="center"><h1>Ingresar Usuario a BD</h1></td>
-                </tr>
 
-                <tr align="left"><td>Rut</td>
-                <td><input type="text" value="" name="rut1"></td></tr>
+        <input type="button" value="Ingresar Cliente" onclick="location.href='indexClientesV.jsp'" />
+        <input type="button" value="Ingresar Venta" onclick="location.href='indexVentasV.jsp'" />
+        <input type="button" value="Ver Ventas(hacer view)"/>
+        <input type="button" value="Mis Ventas(hacer view)"/>
 
-                <tr align="left"><td>Contrasena</td>
-                <td><input type="text" value="" name="contrasena"></td></tr>
-
-                <tr align="left"><td>Nombre</td>
-                <td><input type="text" value="" name="nombre1"></td></tr>
-
-                <tr align="left"><td>Tipo</td>
-                <td><input type="text" value="" name="tipo"></td></tr>
-
-                <tr align="left"><td>Comision</td>
-                <td><input type="text" value="" name="comision"></td></tr>
-
-                <tr align="left"><td>Ingresar</td>
-                <td><input type="submit" value="ingreso_usuario"></td></tr>
-
-                 <input type="button" value="Volver" onclick="location.href='indexadm.jsp'" />
-            </table>
-
-        </form>
     </body>
 </html>
