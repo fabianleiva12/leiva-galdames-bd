@@ -17,7 +17,7 @@
         <form action="ingreso_cliente" method="post">
             <table border="1">
                 <tr bgcolor="#HF2355" style=" color:#HH0023 ; font-weight:bold;">
-                    <td colspan="2" align="center"><h1>Ingresar cliente a BD</h1></td>
+                    <td colspan="2" align="center"><h1>Ingresar cliente</h1></td>
                 </tr>
 
                 <tr align="left"><td>Rut</td>
@@ -26,8 +26,8 @@
                 <tr align="left"><td>Nombre</td>
                 <td><input type="text" value="" name="nombre"></td></tr>
 
-                <tr align="left"><td>Ingresar</td>
-                <td><input type="submit" value="ingreso_cliente"></td></tr>
+                
+                <td><input type="submit" value="Finalizar"></td>
 
                 <input type="button" value="Volver" onclick="location.href='indexadm.jsp'" />
 

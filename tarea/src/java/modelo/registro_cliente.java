@@ -14,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
 /**
  *
  * @author Furious
@@ -50,6 +51,7 @@ public class registro_cliente {
         {}
     }
 
+
     public String getNombre() {
         return nombre;
     }
@@ -66,7 +68,7 @@ public class registro_cliente {
         this.rut = rut;
     }
 
-    
+
 
 
 }

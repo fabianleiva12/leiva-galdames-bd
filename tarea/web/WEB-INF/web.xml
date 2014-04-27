@@ -28,6 +28,10 @@
         <servlet-name>ingreso_ventas</servlet-name>
         <servlet-class>controlador.ingreso_ventas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>update_producto</servlet-name>
+        <servlet-class>controlador.update_producto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ingreso</servlet-name>
         <url-pattern>/ingreso</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ingreso_ventas</servlet-name>
         <url-pattern>/ingreso_ventas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>update_producto</servlet-name>
+        <url-pattern>/update_producto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

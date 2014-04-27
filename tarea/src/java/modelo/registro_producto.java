@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 /**
  *
@@ -48,6 +49,105 @@ public class registro_producto {
         {}
     }
 
+
+        public void update_producto(int id_producto,String description,String categoria,int precio)
+    {
+        String sql="update productos set descripcion=?,categoria=?,precio=? where id_producto=?";
+        try
+        {
+            Class.forName(classfor);
+            con=DriverManager.getConnection(url,usuario,clave);
+
+            pr=con.prepareStatement(sql);
+            pr.setString(1,description );
+            pr.setString(2, categoria);
+            pr.setInt(3, precio);
+            pr.setInt(4,id_producto);
+
+            pr.executeUpdate();
+
+        }
+        catch(Exception ev)
+        {}
+    }
+
+        public registro_producto buscar_prod(int id_producto)
+    {
+        
+        String sql="SELECT * FROM PRODUCTOS WHERE ID_PRODUCTO=?";
+        try
+        {
+            Class.forName(classfor);
+            con=DriverManager.getConnection(url,usuario,clave);
+            
+            pr=con.prepareStatement(sql);
+            pr.setInt(1,id_producto);
+            rs=pr.executeQuery();
+           
+            if(rs.next())
+            {
+            registro_producto pro=new registro_producto();
+            pro.setId_producto(rs.getInt("id_producto"));
+            pro.setStock(rs.getInt("stock"));
+            pro.setDescription(rs.getString("descripcion"));
+            pro.setCategoria(rs.getString("categoria"));
+            pro.setPrecio(rs.getInt("precio"));
+            
+            return pro;
+            }
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }finally{
+            try{
+            rs.close();
+            pr.close();
+            con.close();
+            }catch(Exception ex){}
+        }
+
+        return null;
+    }
+
+
+
+
+       public Vector<registro_producto> buscar_producto()
+    {
+        Vector<registro_producto> vecPro=new Vector<registro_producto>();
+        String sql="SELECT * FROM PRODUCTOS";
+        try
+        {
+            Class.forName(classfor);
+            con=DriverManager.getConnection(url,usuario,clave);
+
+            pr=con.prepareStatement(sql);
+            rs=pr.executeQuery();
+            while(rs.next())
+            {
+            registro_producto pro=new registro_producto();
+            pro.setId_producto(rs.getInt("id_producto"));
+            pro.setStock(rs.getInt("stock"));
+            pro.setDescription(rs.getString("descripcion"));
+            pro.setCategoria(rs.getString("categoria"));
+            pro.setPrecio(rs.getInt("precio"));
+            vecPro.add(pro);
+            }
+
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }finally{
+            try{
+            rs.close();
+            pr.close();
+            con.close();
+            }catch(Exception ex){}
+        }
+
+        return vecPro;
+
+    }
     public String getCategoria() {
         return categoria;
     }

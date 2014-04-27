@@ -3,10 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import modelo.registro_usuario;
-import modelo.registro_cliente;
 
-public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class indexBuscar_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -47,51 +45,36 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n");
       out.write("   \"http://www.w3.org/TR/html4/loose.dtd\">\n");
       out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>PEPEWORKS</title>\n");
+      out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("      \n");
-      out.write("        <form action=\"validar.jsp\" method=\"POST\">\n");
+      out.write("        <form action=\"indexUpdate.jsp\" method=\"post\">\n");
       out.write("            <table border=\"1\">\n");
-      out.write("                <tr bgcolor=\"#HF2355\" style=\" color:#HH0023 ; font-weight:bold;\">\n");
-      out.write("                    <td colspan=\"2\" align=\"center\"><h1>Ingresar aa PEPEWORKS</h1></td>\n");
+      out.write("                <tr bgcolor=\"#HF2355\" style=\" color: #HH0023; font-weight:bold;\">\n");
+      out.write("                    <td colspan=\"2\" align=\"center\"><h1>Ingresar Vendedor</h1></td>\n");
       out.write("                </tr>\n");
       out.write("\n");
-      out.write("                <tr align=\"left\"><td>Rut</td>\n");
-      out.write("                <td><input type=\"text\" value=\"\" name=\"rut\"></td></tr>\n");
-      out.write("\n");
-      out.write("                <tr align=\"left\"><td>Contraseña</td>\n");
-      out.write("                    <td><input type=\"password\" name=\"contrasena\" value=\"\" /></td></tr>\n");
+      out.write("                <tr align=\"left\"><td>Codigo de Producto a editar</td>\n");
+      out.write("                <td><input type=\"text\" value=\"\" name=\"codigo\"></td></tr>\n");
       out.write("\n");
       out.write("\n");
-      out.write("                <tr align=\"left\"><td>Ingresar</td>\n");
-      out.write("                <td><input type=\"submit\" value=\"Ingreso\"></td></tr>\n");
       out.write("\n");
+      out.write("                <td><input  type=\"submit\" value=\"Finalizar\"></td>\n");
+      out.write("                \n");
       out.write("            </table>\n");
-      out.write("            \n");
-      out.write("            \n");
-      out.write("\n");
-      out.write("            <font color=\"red\">\n");
-      out.write("                ");
-if(!(request.getParameter("mensaje")==null)){
-                 out.println(request.getParameter("mensaje"));
-
-                }
       out.write("\n");
       out.write("\n");
-      out.write("            </font>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("        </form>\n");
-      out.write("\n");
       out.write("    </body>\n");
-      out.write("</html>");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

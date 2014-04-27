@@ -17,7 +17,7 @@
     <body>
         <input type="button" value="Ingresar Cliente" onclick="location.href='indexClientes.jsp'" />
         <input type="button" value="Ingresar Vendedor" onclick="location.href='indexUsuario.jsp'" />
-        <input type="button" value="Administrar Productos" onclick="location.href='indexProductos.jsp'" />
+        <input type="button" value="Administrar Productos" onclick="location.href='indexadmproductos.jsp'" />
         <input type="button" value="Ingresar Compra" onclick="location.href='indexcompra.jsp'" />
         <input type="button" value="Ingresar Venta" onclick="location.href='indexVentas.jsp'" />
         <input type="button" value="Ver Ventas(hacer view)"/>

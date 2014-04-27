@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 /**
  *
@@ -45,6 +46,43 @@ public class registro_usuario {
         }
         catch(Exception ev)
         {}
+    }
+
+   public Vector<registro_usuario> buscar_usuario()
+    {
+        Vector<registro_usuario> vecPro=new Vector<registro_usuario>();
+        String sql="SELECT * FROM USUARIOS";
+        try
+        {
+            Class.forName(classfor);
+            con=DriverManager.getConnection(url,usuario,clave);
+
+            pr=con.prepareStatement(sql);
+            rs=pr.executeQuery();
+            while(rs.next())
+            {
+            registro_usuario pro=new registro_usuario();
+            pro.setNombre(rs.getString("nombre"));
+            pro.setContrasena(rs.getString("contrasena"));
+            pro.setRut(rs.getString("rut"));
+            pro.setTipo(rs.getString("tipo"));
+            pro.setComision(rs.getInt("comision"));
+            vecPro.add(pro);
+            }
+
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }finally{
+            try{
+            rs.close();
+            pr.close();
+            con.close();
+            }catch(Exception ex){}
+        }
+
+        return vecPro;
+
     }
 
     public int getComision() {

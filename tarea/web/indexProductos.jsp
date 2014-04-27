@@ -4,6 +4,7 @@
     Author     : Furious
 --%>
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,7 +24,7 @@
                 <tr align="left"><td>Id_producto</td>
                 <td><input type="text" value="" name="id_producto"></td></tr>
 
-                <tr align="left"><td>Stock</td>
+                <tr align="left"><td>Cantidad</td>
                 <td><input type="text" value="" name="stock"></td></tr>
 
                 <tr align="left"><td>Descripcion</td>
@@ -35,10 +36,10 @@
                 <tr align="left"><td>Precio</td>
                 <td><input type="text" value="" name="precio"></td></tr>
 
-                <tr align="left"><td>Ingresar</td>
-                <td><input type="submit" value="ingreso_producto"></td></tr>
+                
+                <td><input type="submit" value="Finalizar"></td>
 
-                 <input type="button" value="Volver" onclick="location.href='indexadm.jsp'" />
+                 <input type="button" value="Volver" onclick="location.href='indexadmproductos.jsp'" />
             </table>
 
         </form>

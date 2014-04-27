@@ -14,32 +14,37 @@
         <title>JSP Page</title>
     </head>
     <body>
-                <form action="ingreso_usuario" method="post">
+        
+       <form action="ingreso_usuario" method="post">
             <table border="1">
                 <tr bgcolor="#HF2355" style=" color: #HH0023; font-weight:bold;">
-                    <td colspan="2" align="center"><h1>Ingresar Usuario a BD</h1></td>
+                    <td colspan="2" align="center"><h1>Ingresar Vendedor</h1></td>
                 </tr>
 
                 <tr align="left"><td>Rut</td>
                 <td><input type="text" value="" name="rut1"></td></tr>
 
                 <tr align="left"><td>Contrasena</td>
-                <td><input type="text" value="" name="contrasena"></td></tr>
+                <td><input type="password" value="" name="contrasena"></td></tr>
+                
+                <tr align="left"><td>Repetir Contrasena</td>
+                <td><input type="password" value="" name="contrasenaR"></td></tr>
 
                 <tr align="left"><td>Nombre</td>
                 <td><input type="text" value="" name="nombre1"></td></tr>
 
-                <tr align="left"><td>Tipo</td>
-                <td><input type="text" value="" name="tipo"></td></tr>
+                <input type="hidden" name="tipo" value="vendedor" />
+                
 
                 <tr align="left"><td>Comision</td>
-                <td><input type="text" value="" name="comision"></td></tr>
+                <td><input type="text"  value="" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" name="comision" ></td></tr>
 
-                <tr align="left"><td>Ingresar</td>
-                <td><input type="submit" value="ingreso_usuario"></td></tr>
-
+                <td><input  type="submit" value="Finalizar"></td>
                 <input type="button" value="Volver" onclick="location.href='indexadm.jsp'" />
             </table>
+
+           
+           
 
         </form>
     </body>
