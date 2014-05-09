@@ -144,7 +144,8 @@ function Valida_Rut()
     </script>
     </head>
     <body>
-        
+        <h2>ADMINISTRADOR</h2>
+        <h2><%= session.getAttribute("user_name") %></h2>
        <form action="ingreso_usuario" method="post" name="usuario_index">
             <table border="1" id="table">
                 <tr bgcolor="#HF2355" style=" color: #HH0023; font-weight:bold;">

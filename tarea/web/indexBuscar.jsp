@@ -10,10 +10,13 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="estilofabian.css" media="screen" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
+        <h2>ADMINISTRADOR</h2>
+        <h2><%= session.getAttribute("user_name") %></h2>
             <form action="verificarProducto.jsp?page=b" method="post">
             <table border="1">
                 <tr bgcolor="#HF2355" style=" color: #HH0023; font-weight:bold;">

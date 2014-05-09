@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.registro_cliente;
 import modelo.registro_venta;
 
 /**
@@ -24,16 +25,38 @@ public class ingreso_ventas extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            registro_venta regis=new registro_venta();
-
-            String id_venta=request.getParameter("id_venta").toUpperCase();
+             int monto_total=0;
+            registro_venta venta=new registro_venta();
+            
+            String cantidad_compras=request.getParameter("cantidad_compras");
             String id_cliente=request.getParameter("id_cliente").toUpperCase();
             String id_usuario=request.getParameter("id_usuario").toUpperCase();
-            String monto_total=request.getParameter("monto_total").toUpperCase();
-            String fecha=request.getParameter("fecha").toUpperCase();
-            String hora=request.getParameter("hora").toUpperCase();
 
-            regis.insertar_venta(Integer.parseInt(id_venta),Integer.parseInt(id_cliente),Integer.parseInt(id_usuario),Integer.parseInt(monto_total),fecha,hora);
+
+            for (int i=1;i<=Integer.parseInt(cantidad_compras);i++){
+                    String producto=request.getParameter("producto"+i).toUpperCase();
+                    String cantidad=request.getParameter("cantidad"+i).toUpperCase();
+                    String precio=request.getParameter("precio"+i).toUpperCase();
+                    monto_total+=Integer.parseInt(precio);
+
+            }
+            String nombreV;
+            String clienteV="0";
+            registro_cliente client=new registro_cliente();
+            for(registro_cliente temp:client.buscar_cliente())
+        {           nombreV=temp.getNombre();
+                    if (nombreV.equals(id_cliente)){
+                            clienteV=temp.getRut();
+            }
+        }
+            int x= venta.insertar_venta(clienteV,Integer.parseInt(id_usuario),monto_total);
+
+             for (int i=1;i<=Integer.parseInt(cantidad_compras);i++){
+                    String producto=request.getParameter("producto"+i).toUpperCase();
+                    String cantidad=request.getParameter("cantidad"+i).toUpperCase();
+                    venta.insertar_venta_detalle(x, Integer.parseInt(producto),Integer.parseInt(cantidad));
+
+            }
 
             response.sendRedirect("indexVentas.jsp");
         } finally { 

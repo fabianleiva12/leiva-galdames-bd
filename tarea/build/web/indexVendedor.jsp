@@ -15,12 +15,11 @@
         
     </head>
     <body>
-        <%String nombre_usuario=request.getParameter("usuario");%>
+        
         <h2>VENDEDOR</h2>
-        <h1><%=nombre_usuario%></h1>
+        <h2><%= session.getAttribute("user_name") %></h2>
         <input type="button" value="Ingresar Cliente" onclick="location.href='indexClientesV.jsp'" />
-        <input type="button" value="Ingresar Venta" onclick="location.href='indexVentasV.jsp'" />
-        <input type="button" value="Ver Ventas(hacer view)"/>
+        <input type="button" value="Ingresar Venta" onclick="location.href='indexVentasV.jsp'" />        
         <input type="button" value="Mis Ventas(hacer view)"/>
 
     </body>

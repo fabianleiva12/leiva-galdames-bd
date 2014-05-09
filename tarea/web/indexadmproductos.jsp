@@ -16,6 +16,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <h2>ADMINISTRADOR</h2>
+        <h2><%= session.getAttribute("user_name") %></h2>
          <input type="button" value="Buscar Producto" onclick="location.href='indexBuscar.jsp'" />
         <input type="button" value="Editar Producto" onclick="location.href='indexBuscarU.jsp'" />
         <input type="button" value="Agregar Producto" onclick="location.href='indexProductos.jsp'" />

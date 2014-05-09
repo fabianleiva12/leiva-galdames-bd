@@ -12,7 +12,6 @@ public final class indexcompra_jsp extends org.apache.jasper.runtime.HttpJspBase
         
 
     String nombre_producto;
-    String producto;
     String cantidad;
     String precio;
     String fecha;
@@ -111,13 +110,12 @@ public final class indexcompra_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write(" ");
 
     nombre_producto=request.getParameter("nombre_producto");
-    producto=request.getParameter("producto");
     cantidad=request.getParameter("cantidad");
     precio=request.getParameter("precio");
     fecha=request.getParameter("fecha");
     hora=request.getParameter("hora");
     monto=Integer.parseInt(cantidad) * Integer.parseInt( precio);
-    
+
     
       out.write("\n");
       out.write("         \n");
@@ -130,12 +128,8 @@ public final class indexcompra_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print(nombre_producto);
       out.write(" name=\"nombre_producto\"></td></tr>\n");
       out.write("  \n");
-      out.write("                <tr align=\"left\"><td>Cantidad</td>\n");
-      out.write("                <td><input size=\"50\" type=\"text\" value=");
-      out.print(producto);
-      out.write(" name=\"producto\"></td></tr>\n");
       out.write("\n");
-      out.write("                <tr align=\"left\"><td>Id Compra</td>\n");
+      out.write("                <tr align=\"left\"><td>Cantidad</td>\n");
       out.write("                <td><input size=\"50\" type=\"text\" value=");
       out.print(cantidad);
       out.write(" name=\"cantidad\"></td></tr>\n");

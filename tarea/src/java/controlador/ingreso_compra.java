@@ -48,7 +48,7 @@ public class ingreso_compra extends HttpServlet {
                     
                     registro_producto nuevo=new registro_producto();
                     registro_producto tmp1=nuevo.buscar_prod1(nombre_producto);
-                    
+                   
                     compra1.insertar_compra_detalle(tmp1.getId_producto(),x, Integer.parseInt(cantidad), Integer.parseInt(precio));
 
             }

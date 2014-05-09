@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class indexadm_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class verVentas_005fcliente_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -52,23 +52,10 @@ public final class indexadm_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"estilofabian.css\" media=\"screen\" />\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Administrador</title>\n");
+      out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
-      out.write("\n");
       out.write("    <body>\n");
-      out.write("        ");
-String nombre_usuario=request.getParameter("usuario");
-      out.write("\n");
-      out.write("        <h2>BIENVENIDO ADMINISTRADOR</h2>\n");
-      out.write("        <h2>");
-      out.print( session.getAttribute("user_name") );
-      out.write("</h2>\n");
-      out.write("        <input type=\"button\" value=\"Ingresar Cliente\" onclick=\"location.href='indexClientes.jsp'\" />\n");
-      out.write("        <input type=\"button\" value=\"Ingresar Vendedor\" onclick=\"location.href='indexUsuario.jsp'\" />\n");
-      out.write("        <input type=\"button\" value=\"Administrar Productos\" onclick=\"location.href='indexadmproductos.jsp'\" />\n");
-      out.write("        <input type=\"button\" value=\"Ingresar Compra\" onclick=\"location.href='indexcompra_inicial.jsp'\" />\n");
-      out.write("        <input type=\"button\" value=\"Ingresar Venta\" onclick=\"location.href='indexVentas.jsp'\" />\n");
-      out.write("        <input type=\"button\" value=\"Ver Ventas(hacer view)\"/>\n");
+      out.write("        <input type=\"text\" name=\"ingresar_cliente\" value=\"Ingresar Cliente\" />\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

@@ -15,6 +15,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <h2>ADMINISTRADOR</h2>
+        <h2><%= session.getAttribute("user_name") %></h2>
         <form action="verificarProducto.jsp?page=a" method="post">
             <table border="1" id="table">
                 <tr bgcolor="#HF2355" style=" color: #HH0023; font-weight:bold;">

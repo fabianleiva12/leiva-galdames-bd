@@ -44,11 +44,13 @@
 
 
                 if(temp.getTipo().equals("ADMINISTRADOR"))
-                {   
+                {   session.setAttribute("user_name", temp.getNombre());
+                    session.setAttribute("user_id", temp.getRut());
                     response.sendRedirect("indexadm.jsp?usuario="+temp.getNombre());
                 }
                 if(temp.getTipo().equals("VENDEDOR"))
-                {
+                {   session.setAttribute("user_name", temp.getNombre());
+                    session.setAttribute("user_id", temp.getRut());
                     response.sendRedirect("indexVendedor.jsp?usuario="+temp.getNombre());
                 }
  

@@ -111,6 +111,8 @@ function allLetter(inputtxt)
         </script>
     </head>
     <body>
+        <h2>ADMINISTRADOR</h2>
+        <h2><%= session.getAttribute("user_name") %></h2>
         <form action="ingreso_cliente" name="inclientes" method="post">
             <table border="1" id="table">
                 <tr bgcolor="#FF8000" style=" color:#F7F2E0 ; font-weight:bold;">

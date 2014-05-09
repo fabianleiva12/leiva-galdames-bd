@@ -57,26 +57,15 @@
           var rowCount = table.rows.length;
           document.getElementById("cantidad_compras").value=rowCount-1;
           alert("Compra Exitosa");
-          /*
-          var row = table.insertRow(rowCount);
-          var cell1 = row.insertCell(0);*/
-          //alert("testing1");
-          //var element1 = document.createElement("input");
-          //alert("testing2");
-          //element1.type = "hidden";
-          //alert("testing3");
-          //element1.name="cantidad_compras";
-          //alert("testing4");
-          //element1.value= rowCount;
-          //alert("testing5");
-          //cell1.appendChild(element1);
-          //alert("testing6");
+         
 }
        
         </script>
     </head>
     <body>
-        <form name="compra" action="ingreso_compra" id="form_compra" onSubmit="return doThis(this.finalizar) ">
+        <h2>BIENVENIDO ADMINISTRADOR</h2>
+        <h2><%= session.getAttribute("user_name") %></h2>
+        <form name="compra" action="ingreso_compra" id="form_compra" onSubmit="return doThis(this.finalizar)">
 
         <table border="0" id="table">
             <thead>

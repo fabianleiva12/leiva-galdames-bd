@@ -151,6 +151,11 @@ public final class indexClientesV_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("        </script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        \n");
+      out.write("       <h2>VENDEDOR</h2>\n");
+      out.write("        <h2>");
+      out.print( session.getAttribute("user_name") );
+      out.write("</h2>\n");
       out.write("        <form action=\"ingreso_cliente\" name=\"inclientesv\" method=\"post\">\n");
       out.write("            <table border=\"1\" id=\"table\">\n");
       out.write("                <tr bgcolor=\"#HF2355\" style=\" color:#HH0023 ; font-weight:bold;\">\n");

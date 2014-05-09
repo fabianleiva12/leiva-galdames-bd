@@ -18,7 +18,7 @@
     <body>
         <%String nombre_usuario=request.getParameter("usuario");%>
         <h2>BIENVENIDO ADMINISTRADOR</h2>
-        <h2><%=nombre_usuario%></h2>
+        <h2><%= session.getAttribute("user_name") %></h2>
         <input type="button" value="Ingresar Cliente" onclick="location.href='indexClientes.jsp'" />
         <input type="button" value="Ingresar Vendedor" onclick="location.href='indexUsuario.jsp'" />
         <input type="button" value="Administrar Productos" onclick="location.href='indexadmproductos.jsp'" />

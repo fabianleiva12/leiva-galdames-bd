@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import modelo.registro_producto;
 import modelo.registro_usuario;
 import modelo.registro_cliente;
 
@@ -11,8 +12,10 @@ public final class indexVentasV_jsp extends org.apache.jasper.runtime.HttpJspBas
 
 
         String nombreV;
+        String clienteV;
         boolean x=true;
         registro_cliente client=new registro_cliente();
+        registro_producto tmp=new registro_producto();
         
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
@@ -49,6 +52,7 @@ public final class indexVentasV_jsp extends org.apache.jasper.runtime.HttpJspBas
       _jspx_out = out;
       _jspx_resourceInjector = (org.apache.jasper.runtime.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -106,55 +110,66 @@ public final class indexVentasV_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("            var row = table.insertRow(rowCount);\n");
       out.write("\n");
       out.write("            var cell1 = row.insertCell(0);\n");
-      out.write("            cell1.innerHTML=document.getElementById(\"nombrep\").value;\n");
+      out.write("            cell1.innerHTML=document.getElementById(\"producto\").value;\n");
       out.write("            var element1 = document.createElement(\"input\");\n");
       out.write("            element1.type = \"hidden\";\n");
       out.write("            element1.name=\"nombre\"+(rowCount);\n");
-      out.write("            element1.value= document.getElementById(\"nombrep\").value;\n");
+      out.write("            element1.value= document.getElementById(\"producto\").value;\n");
       out.write("            cell1.appendChild(element1);\n");
       out.write("\n");
       out.write("            var cell2 = row.insertCell(1);\n");
-      out.write("            cell2.innerHTML=document.getElementById(\"cantidadp\").value;\n");
+      out.write("            cell2.innerHTML=document.getElementById(\"cantidad\").value;\n");
       out.write("            var element2 = document.createElement(\"input\");\n");
       out.write("            element2.type = \"hidden\";\n");
       out.write("            element2.name=\"cantidad\"+(rowCount);\n");
-      out.write("            element2.value=document.getElementById(\"cantidadp\").value;\n");
+      out.write("            element2.value=document.getElementById(\"cantidad\").value;\n");
       out.write("            cell2.appendChild(element2);\n");
       out.write("\n");
       out.write("            var cell3 = row.insertCell(2);\n");
-      out.write("            cell3.innerHTML=document.getElementById(\"preciop\").value;\n");
+      out.write("            cell3.innerHTML=document.getElementById(\"precio\").value;\n");
       out.write("            var element3 = document.createElement(\"input\");\n");
       out.write("            element3.type = \"hidden\";\n");
       out.write("            element3.name=\"precio\"+(rowCount);\n");
-      out.write("            element3.value=document.getElementById(\"preciop\").value;\n");
+      out.write("            element3.value=document.getElementById(\"precio\").value;\n");
       out.write("            cell3.appendChild(element3);\n");
       out.write("\n");
       out.write("            document.getElementById(\"nombrep\").value=\"\"\n");
       out.write("            document.getElementById(\"cantidadp\").value=\"\"\n");
       out.write("            document.getElementById(\"preciop\").value=\"\"\n");
       out.write("        }\n");
+      out.write("        function doThis()\n");
+      out.write("{\n");
+      out.write("          //alert(\"testing\");\n");
+      out.write("          var table = document.getElementById('tablacompras');\n");
+      out.write("          var rowCount = table.rows.length;\n");
+      out.write("          document.getElementById(\"cantidad_compras\").value=rowCount-1;\n");
+      out.write("          alert(\"Compra Exitosa\");\n");
+      out.write("\n");
+      out.write("}\n");
       out.write("        </script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
       out.write("\n");
-      out.write("\n");
-      out.write("          <form action=\"ingreso_venta\" method=\"post\" name=\"ventasv\">\n");
+      out.write("        <h2>VENDEDOR</h2>\n");
+      out.write("        <h2>");
+      out.print( session.getAttribute("user_name") );
+      out.write("</h2>\n");
+      out.write("          <form action=\"ingreso_venta\" method=\"post\" name=\"ventasv\" onSubmit=\"return doThis(this.finalizar) \">\n");
       out.write("            <table border=\"1\" id=\"table\">\n");
       out.write("                <tr bgcolor=\"#HF2355\" style=\" color: #HH0023; font-weight:bold;\">\n");
       out.write("                    <td colspan=\"2\" align=\"center\"><h1>Ingresar Venta</h1></td>\n");
       out.write("                </tr>\n");
       out.write("\n");
-      out.write("                <tr align=\"left\"><td>Id Venta</td>\n");
-      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" name=\"id_venta\"></td></tr>\n");
-      out.write("\n");
+      out.write("               \n");
       out.write("                <tr align=\"left\"><td>Id cliente</td>\n");
-      out.write("                <td><select name=\"cliente\">\n");
+      out.write("                <td><select name=\"cliente\" id=\"id_cliente\">\n");
       out.write("   <option selected value=\"0\"> Elija un cliente </option>\n");
       out.write("   ");
 for(registro_cliente temp:client.buscar_cliente())
         {
                     nombreV=temp.getNombre();
+                    clienteV=temp.getRut();
                     out.println("<option>"+nombreV+"</option>"); 
 
         }
@@ -163,17 +178,25 @@ for(registro_cliente temp:client.buscar_cliente())
       out.write("       \n");
       out.write("</select></td></tr>\n");
       out.write("\n");
+      out.write("                <tr align=\"left\"><td>Producto</td>\n");
+      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" name=\"producto\" id=\"producto\"></td></tr>\n");
+      out.write("\n");
+      out.write("\n");
       out.write("                <tr align=\"left\"><td>Id Usuario</td>\n");
-      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" name=\"id_usuario\"></td></tr>\n");
+      out.write("                <td><input size=\"50\" type=\"text\" value=\"");
+      out.print( session.getAttribute("user_id") );
+      out.write("\" name=\"id_usuario\" id=\"id_usuario\" disabled=\"disabled\"></td></tr>\n");
       out.write("\n");
-      out.write("                <tr align=\"left\"><td>Monto total</td>\n");
-      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" name=\"monto_total\" onkeyup=\"allnumeric(document.ventasv.monto_total);\"></td></tr>\n");
+      out.write("                <tr align=\"left\"><td>Cantidad</td>\n");
+      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" name=\"cantidad\" id=\"cantidad\" onkeyup=\"allnumeric(document.ventasv.monto_total);\"></td></tr>\n");
       out.write("\n");
-      out.write("                <tr align=\"left\"><td>Fecha</td>\n");
-      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" name=\"fecha\"></td></tr>\n");
+      out.write("                <tr align=\"left\"><td>Precio</td>\n");
+      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" name=\"precio\" id=\"precio\"></td></tr>\n");
       out.write("\n");
-      out.write("                <tr align=\"left\"><td>Hora</td>\n");
-      out.write("                <td></td></tr>\n");
+      out.write("                <tr>\n");
+      out.write("                    <th><input type=\"submit\" id=\"finalizar\" name=\"finalizar\" value=\"Finalizar\" ></th>\n");
+      out.write("                    <th><input type=\"button\" id=\"ingresar\" value=\"Ingresar\" onclick=\"addRow('tablacompras');\"> </th>\n");
+      out.write("                </tr>\n");
       out.write("\n");
       out.write("                 <input type=\"button\" value=\"Volver\" onclick=\"location.href='indexVendedor.jsp'\" />\n");
       out.write("            </table>\n");

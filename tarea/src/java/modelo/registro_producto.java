@@ -109,7 +109,45 @@ public class registro_producto {
         return null;
     }
 
-        public registro_producto buscar_prod1(String producto)
+        public registro_producto buscar_prod1(String nombre)
+    {
+
+        String sql="SELECT * FROM PRODUCTOS WHERE nombre=?";
+        try
+        {
+            Class.forName(classfor);
+            con=DriverManager.getConnection(url,usuario,clave);
+
+            pr=con.prepareStatement(sql);
+            pr.setString(1,nombre);
+            rs=pr.executeQuery();
+
+            if(rs.next())
+            {
+            registro_producto pro=new registro_producto();
+            pro.setId_producto(rs.getInt("id_producto"));
+            pro.setStock(rs.getInt("stock"));
+            pro.setDescription(rs.getString("descripcion"));
+            pro.setCategoria(rs.getString("categoria"));
+            pro.setPrecio(rs.getInt("precio"));
+
+            return pro;
+            }
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }finally{
+            try{
+            rs.close();
+            pr.close();
+            con.close();
+            }catch(Exception ex){}
+        }
+
+        return null;
+    }
+
+        public registro_producto buscar_precio(String producto)
     {
 
         String sql="SELECT * FROM PRODUCTOS WHERE NOMBRE=?";
