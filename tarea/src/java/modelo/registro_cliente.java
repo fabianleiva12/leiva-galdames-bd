@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 
 /**
@@ -51,6 +52,39 @@ public class registro_cliente {
         {}
     }
 
+        public Vector<registro_cliente> buscar_cliente()
+    {
+        Vector<registro_cliente> vecPro=new Vector<registro_cliente>();
+        String sql="SELECT * FROM CLIENTES";
+        try
+        {
+            Class.forName(classfor);
+            con=DriverManager.getConnection(url,usuario,clave);
+
+            pr=con.prepareStatement(sql);
+            rs=pr.executeQuery();
+            while(rs.next())
+            {
+            registro_cliente pro=new registro_cliente();
+            pro.setRut(rs.getString("rut"));
+            pro.setNombre(rs.getString("nombre"));
+            vecPro.add(pro);
+            }
+
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }finally{
+            try{
+            rs.close();
+            pr.close();
+            con.close();
+            }catch(Exception ex){}
+        }
+
+        return vecPro;
+
+    }
 
     public String getNombre() {
         return nombre;

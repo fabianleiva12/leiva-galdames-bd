@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 /**
  *
@@ -45,7 +46,7 @@ public class registro_venta {
             pr.setInt(3, id_usuario);
             pr.setInt(4,monto_total);
             pr.setString(5, fecha);
-            pr.setString(6,hora);
+            pr.setString(6, hora);
 
             pr.executeUpdate();
 
@@ -53,7 +54,7 @@ public class registro_venta {
         catch(Exception ev)
         {}
     }
-
+       
     public String getFecha() {
         return fecha;
     }

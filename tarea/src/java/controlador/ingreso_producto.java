@@ -26,13 +26,14 @@ public class ingreso_producto extends HttpServlet {
         try {
             registro_producto regis=new registro_producto();
 
+            String nombre=request.getParameter("nombre").toUpperCase();
             String id_producto=request.getParameter("id_producto").toUpperCase();
             String stock=request.getParameter("stock").toUpperCase();
             String description=request.getParameter("description").toUpperCase();
             String categoria=request.getParameter("categoria").toUpperCase();
             String precio=request.getParameter("precio").toUpperCase();
 
-            regis.insertar_producto(Integer.parseInt(id_producto),Integer.parseInt(stock),description,categoria,Integer.parseInt(precio));
+            regis.insertar_producto(nombre,Integer.parseInt(id_producto),Integer.parseInt(stock),description,categoria,Integer.parseInt(precio));
 
             response.sendRedirect("indexProductos.jsp");
         } finally { 

@@ -44,14 +44,14 @@
 
 
                 if(temp.getTipo().equals("ADMINISTRADOR"))
-                {
-                    response.sendRedirect("indexadm.jsp");
+                {   
+                    response.sendRedirect("indexadm.jsp?usuario="+temp.getNombre());
                 }
                 if(temp.getTipo().equals("VENDEDOR"))
                 {
-                    response.sendRedirect("indexVendedor.jsp");
+                    response.sendRedirect("indexVendedor.jsp?usuario="+temp.getNombre());
                 }
-
+ 
             }
         }
         if (x){

@@ -32,7 +32,7 @@ public class ingreso_usuario extends HttpServlet {
             regis1.insertar_usuario(rut,contrasena,nombre,tipo,Integer.parseInt(comision));
 
             response.sendRedirect("indexVendedor.jsp");
-
+            
         } finally { 
             out.close();
         }

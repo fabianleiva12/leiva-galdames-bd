@@ -11,13 +11,12 @@ import java.util.Vector;
  * @author Furious
  */
 public class registro_producto {
-
+    private String nombre;
     private int id_producto;
     private int stock;
     private String description;
     private String categoria;
     private int precio;
-
     private String classfor="oracle.jdbc.driver.OracleDriver";
     private String url="jdbc:oracle:thin:@localhost:1521:sysdba";
     private String usuario="pepeworks";
@@ -27,9 +26,9 @@ public class registro_producto {
     private PreparedStatement pr=null;
     private ResultSet rs=null;
 
-    public void insertar_producto(int id_producto,int stock,String description,String categoria,int precio)
+    public void insertar_producto(String nombre,int id_producto,int stock,String description,String categoria,int precio)
     {
-        String sql="Insert into productos values(?,?,?,?,?)";
+        String sql="Insert into productos values(?,?,?,?,?,?)";
         try
         {
             Class.forName(classfor);
@@ -39,8 +38,9 @@ public class registro_producto {
             pr.setInt(1, id_producto);
             pr.setInt(2, stock);
             pr.setString(3, description);
-            pr.setString(4,categoria);
-            pr.setInt(5, precio);
+            pr.setString(4, categoria);
+            pr.setInt(5,precio);
+            pr.setString(6, nombre);
 
             pr.executeUpdate();
 
@@ -93,6 +93,44 @@ public class registro_producto {
             pro.setCategoria(rs.getString("categoria"));
             pro.setPrecio(rs.getInt("precio"));
             
+            return pro;
+            }
+        }catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }finally{
+            try{
+            rs.close();
+            pr.close();
+            con.close();
+            }catch(Exception ex){}
+        }
+
+        return null;
+    }
+
+        public registro_producto buscar_prod1(String producto)
+    {
+
+        String sql="SELECT * FROM PRODUCTOS WHERE NOMBRE=?";
+        try
+        {
+            Class.forName(classfor);
+            con=DriverManager.getConnection(url,usuario,clave);
+
+            pr=con.prepareStatement(sql);
+            pr.setString(1,producto);
+            rs=pr.executeQuery();
+
+            if(rs.next())
+            {
+            registro_producto pro=new registro_producto();
+            pro.setId_producto(rs.getInt("id_producto"));
+            pro.setStock(rs.getInt("stock"));
+            pro.setDescription(rs.getString("descripcion"));
+            pro.setCategoria(rs.getString("categoria"));
+            pro.setPrecio(rs.getInt("precio"));
+
             return pro;
             }
         }catch(Exception ex)

@@ -12,28 +12,29 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="estilofabian.css" media="screen" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>PEPEWORKS</title>
     </head>
     <body>
       
         <form action="validar.jsp" method="POST">
-            <table border="1">
-                <tr bgcolor="#HF2355" style=" color:#HH0023 ; font-weight:bold;">
-                    <td colspan="2" align="center"><h1>Ingresar aa PEPEWORKS</h1></td>
+            
+                <tr  style=" ; font-weight:bolder;">
+                    <td colspan="2" align="center"><h1>PEPEWORKS</h1></td>
                 </tr>
 
-                <tr align="left"><td>Rut</td>
-                <td><input type="text" value="" name="rut"></td></tr>
+                <tr align="center"><td>Rut</td>
+                <td><input size="50" type="text" value="" name="rut"></td></tr>
 
-                <tr align="left"><td>Contraseña</td>
-                    <td><input type="password" name="contrasena" value="" /></td></tr>
+                <tr align="center"><td>Contraseña</td>
+                    <td><input size="50" type="password" name="contrasena" value="" /></td></tr>
 
+                <br><br>
+                
+                <input type="submit" value="Ingreso">
 
-                <tr align="left"><td>Ingresar</td>
-                <td><input type="submit" value="Ingreso"></td></tr>
-
-            </table>
+            
             
             
 

@@ -20,13 +20,22 @@
                     <td colspan="2" align="center"><h1>Buscar Producto</h1></td>
                 </tr>
 
-                <tr align="left"><td>Codigo de Producto a editar</td>
-                <td><input type="text" value="" name="codigo"></td></tr>
+                <tr align="left"><td>Codigo de Producto a buscar</td>
+                <td><input type="text" value="" name="codigo" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;"></td></tr>
+
 
 
 
                 <td><input  type="submit" value="Finalizar"></td>
 
+                <font color="red">
+                <%if(!(request.getParameter("mensaje")==null)){
+                 out.println(request.getParameter("mensaje"));
+
+                }%>
+
+            </font>
+                <input type="button" value="Volver" onclick="location.href='indexadmproductos.jsp'" />
             </table>
 
 

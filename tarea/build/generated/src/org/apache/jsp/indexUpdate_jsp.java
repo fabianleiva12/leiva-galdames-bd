@@ -10,7 +10,7 @@ public final class indexUpdate_jsp extends org.apache.jasper.runtime.HttpJspBase
 
 
         String codi;
-
+        String x;
         
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
@@ -56,60 +56,86 @@ public final class indexUpdate_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"estilofabian.css\" media=\"screen\" />\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        ");
       out.write("\n");
+      out.write("        <script type=\"text/javascript\" >\n");
+      out.write("         function allLetter(inputtxt)\n");
+      out.write("  {\n");
+      out.write("   var letters = /^[A-Za-z]+$/;\n");
+      out.write("   if(inputtxt.value.match(letters))\n");
+      out.write("     {\n");
+      out.write("      document.getElementById(\"finalizar\").disabled=false;\n");
+      out.write("      return true;\n");
+      out.write("     }\n");
+      out.write("   else\n");
+      out.write("     {\n");
+      out.write("     alert('Por favor inserta solo letras');\n");
+      out.write("     document.getElementById(\"finalizar\").disabled=true;\n");
+      out.write("     inputtxt.value=\"\";\n");
+      out.write("     return false;\n");
+      out.write("     }\n");
+      out.write("  }\n");
+      out.write("\n");
+      out.write("  function allnumeric(inputtxt)\n");
+      out.write("   {\n");
+      out.write("      var numbers = /^[0-9]+$/;\n");
+      out.write("      if(inputtxt.value.match(numbers))\n");
+      out.write("      {\n");
+      out.write("      //alert('Your Registration number has accepted....');\n");
+      out.write("      document.getElementById(\"finalizar\").disabled=false;\n");
+      out.write("      document.form1.text1.focus();\n");
+      out.write("      return true;\n");
+      out.write("      }\n");
+      out.write("      else\n");
+      out.write("      {\n");
+      out.write("      alert('Por favor inserta sólo números');\n");
+      out.write("      document.getElementById(\"finalizar\").disabled=true;\n");
+      out.write("      inputtxt.value=\"\";\n");
+      out.write("      document.form1.text1.focus();\n");
+      out.write("      return false;\n");
+      out.write("      }\n");
+      out.write("   }\n");
+      out.write("        </script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
-codi=request.getParameter("codigo");
+codi=request.getParameter("id");
+          x=request.getParameter("stoc");
+          
       out.write("\n");
-      out.write("          <form action=\"update_producto\" method=\"post\">\n");
-      out.write("            <table border=\"1\">\n");
+      out.write("\n");
+      out.write("          <form action=\"update_producto\" method=\"post\" name=\"upproductos\">\n");
+      out.write("            <table border=\"1\" id=\"table\">\n");
       out.write("                <tr bgcolor=\"#HF2355\" style=\" color: #HH0023; font-weight:bold;\">\n");
       out.write("                    <td colspan=\"2\" align=\"center\"><h1>Editar producto</h1></td>\n");
       out.write("                </tr>\n");
       out.write("\n");
       out.write("                <tr align=\"left\"><td>Id producto a editar</td>\n");
-      out.write("                <td><input type=\"text\" value=");
+      out.write("                    <td><input size=\"50\" type=\"text\" value=");
       out.print(codi );
-      out.write(" name=\"id_producto\" disabled=\"disabled\"></td></tr>\n");
-      out.write("\n");
-      out.write("                ");
-registro_producto pro=new registro_producto();
-                  for (registro_producto temp1: pro.buscar_producto()){
-                      if (Integer.toString(temp1.getId_producto()).equals(codi)){
-
-                
-      out.write("\n");
+      out.write(" name=\"id_producto\" readonly=\"readonly\"></td></tr>\n");
+      out.write(" \n");
       out.write("\n");
       out.write("                <tr align=\"left\"><td>Stock</td>\n");
-      out.write("                    <td><input type=\"text\" value=");
-      out.print(Integer.toString(temp1.getStock()) );
-      out.write(" name=\"stock\"></td></tr>\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("            ");
-      }
-
-                } 
-      out.write("\n");
+      out.write("                    <td><input size=\"50\" type=\"text\" value=");
+      out.print(x );
+      out.write(" name=\"stock\" readonly=\"readonly\" ></td></tr>\n");
       out.write("\n");
       out.write("                <tr align=\"left\"><td>Descripcion</td>\n");
-      out.write("                <td><input type=\"text\" value=\"\" name=\"description\"></td></tr>\n");
+      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" id=\"description\" name=\"description\" onkeyup=\" allLetter(document.upproductos.description);\"></td></tr>\n");
       out.write("\n");
       out.write("                <tr align=\"left\"><td>Categoria</td>\n");
-      out.write("                <td><input type=\"text\" value=\"\" name=\"categoria\"></td></tr>\n");
+      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" id=\"categoria\" name=\"categoria\" onkeyup=\" allLetter(document.upproductos.categoria);\"></td></tr>\n");
       out.write("\n");
       out.write("                <tr align=\"left\"><td>Nuevo Precio</td>\n");
-      out.write("                <td><input type=\"text\" value=\"\" name=\"precio\"></td></tr>\n");
+      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" onKeypress=\"if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;\" name=\"precio\"></td></tr>\n");
       out.write("\n");
       out.write("\n");
-      out.write("                <td><input type=\"submit\" value=\"Finalizar\"></td>\n");
+      out.write("                <td><input type=\"submit\" id=\"finalizar\" value=\"Guardar Cambios\"></td>\n");
       out.write("\n");
-      out.write("                 <input type=\"button\" value=\"Volver\" onclick=\"location.href='indexadmproductos.jsp'\" />\n");
+      out.write("                <input type=\"button\" value=\"Volver\" onclick=\"location.href='indexBuscarU.jsp'\" />\n");
       out.write("            </table>\n");
       out.write("\n");
       out.write("        </form>\n");

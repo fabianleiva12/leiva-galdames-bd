@@ -10,11 +10,14 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="estilofabian.css" media="screen" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        
     </head>
     <body>
-
+        <%String nombre_usuario=request.getParameter("usuario");%>
+        <h2>VENDEDOR</h2>
+        <h1><%=nombre_usuario%></h1>
         <input type="button" value="Ingresar Cliente" onclick="location.href='indexClientesV.jsp'" />
         <input type="button" value="Ingresar Venta" onclick="location.href='indexVentasV.jsp'" />
         <input type="button" value="Ver Ventas(hacer view)"/>

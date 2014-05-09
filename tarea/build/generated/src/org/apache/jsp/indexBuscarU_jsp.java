@@ -50,24 +50,35 @@ public final class indexBuscarU_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"estilofabian.css\" media=\"screen\" />\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>JSP Page</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <form action=\"verificarProducto.jsp\" method=\"post\">\n");
-      out.write("            <table border=\"1\">\n");
+      out.write("        <form action=\"verificarProducto.jsp?page=a\" method=\"post\">\n");
+      out.write("            <table border=\"1\" id=\"table\">\n");
       out.write("                <tr bgcolor=\"#HF2355\" style=\" color: #HH0023; font-weight:bold;\">\n");
       out.write("                    <td colspan=\"2\" align=\"center\"><h1>Buscar Producto</h1></td>\n");
       out.write("                </tr>\n");
       out.write("\n");
       out.write("                <tr align=\"left\"><td>Codigo de Producto a editar</td>\n");
-      out.write("                <td><input type=\"text\" value=\"\" name=\"codigo\"></td></tr>\n");
+      out.write("                <td><input size=\"50\" type=\"text\" value=\"\" name=\"codigo\" onKeypress=\"if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;\" ></td></tr>\n");
+      out.write("\n");
+      out.write("                <td><input  type=\"submit\" value=\"Buscar\"></td>\n");
+      out.write("\n");
+      out.write("                <font color=\"red\">\n");
+      out.write("                ");
+if(!(request.getParameter("mensaje")==null)){
+                 out.println(request.getParameter("mensaje"));
+
+                }
       out.write("\n");
       out.write("\n");
+      out.write("            </font>\n");
       out.write("\n");
-      out.write("                <td><input  type=\"submit\" value=\"Finalizar\"></td>\n");
+      out.write("                <input type=\"button\" value=\"Volver\" onclick=\"location.href='indexadmproductos.jsp'\" />\n");
       out.write("                \n");
-      out.write("            </table>\n");
+      out.write("            </table>  \n");
       out.write("\n");
       out.write("\n");
       out.write("\n");

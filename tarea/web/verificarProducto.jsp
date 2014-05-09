@@ -14,19 +14,39 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <%!
         String codig;
-        
+        String page="null";
         %>
     </head>
     <body>
-        <%codig=request.getParameter("codigo");
+        <%
+          codig=request.getParameter("codigo");
+          page=request.getParameter("page");
           registro_producto nuevo=new registro_producto();
           registro_producto tmp1=nuevo.buscar_prod(Integer.parseInt(codig));
 
-          if (tmp1==null){
-              response.sendRedirect("indexBuscarU.jsp");
+          if (tmp1==null && !page.equals("b")){
+              
+              %>
+        <jsp:forward page="indexBuscarU.jsp">
+            <jsp:param name="mensaje" value="Producto no encontrado."/>
+        </jsp:forward>
+
+          <%
           }
+          if (tmp1==null && page.equals("b")){
+
+              %>
+          <jsp:forward page="indexBuscar.jsp">
+            <jsp:param name="mensaje" value="Producto no encontrado."/>
+        </jsp:forward>
+          <%
+          }
+          if (page.equals("b")==true){
+              response.sendRedirect("indexEncontrado.jsp?id="+Integer.toString(tmp1.getId_producto())+"&stock="+Integer.toString(tmp1.getStock())+"&precio="+Integer.toString(tmp1.getPrecio())+"&categoria="+tmp1.getCategoria()+"&descripcion="+tmp1.getDescription());
+          }
+
           else{
-                response.sendRedirect("indexUpdate.jsp?id="+Integer.toString(tmp1.getId_producto())+ "&stoc="+Integer.toString(tmp1.getStock()));
+                response.sendRedirect("indexUpdate.jsp?id="+Integer.toString(tmp1.getId_producto())+ "&stock="+Integer.toString(tmp1.getStock()));
           } %>
     </body>
 </html>

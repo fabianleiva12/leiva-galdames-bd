@@ -11,18 +11,19 @@
 
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="estilofabian.css" media="screen" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
-         <input type="button" value="Buscar Producto" onclick="location.href='indexClientes.jsp'" />
+         <input type="button" value="Buscar Producto" onclick="location.href='indexBuscar.jsp'" />
         <input type="button" value="Editar Producto" onclick="location.href='indexBuscarU.jsp'" />
         <input type="button" value="Agregar Producto" onclick="location.href='indexProductos.jsp'" />
         <input type="button" value="Volver" onclick="location.href='indexadm.jsp'" />
 
 
-        <table border="1"  width="400">
-
+        <table>
+            <table border="1">
                 <tr>
                     <td>ID PRODUCTO</td>
                     <td>STOCK</td>
@@ -31,11 +32,12 @@
                     <td>PRECIO</td>
                 </tr>
         <%registro_producto pro=new registro_producto();
+
                   for (registro_producto temp1: pro.buscar_producto()){
           %>
 
             
-          <table border="1" width="100">
+          
                <tr >
                    <td align="left"><%=temp1.getId_producto() %></td>
                    <td align="left"><%=temp1.getStock() %></td>
@@ -43,9 +45,10 @@
                    <td align="left"><%=temp1.getCategoria() %></td>
                    <td align="left"><%=temp1.getPrecio() %></td>
                </tr>
-           </table>
-           </table>
+           
 
             <% } %>
+            </table>
+           </table>
     </body>
 </html>
